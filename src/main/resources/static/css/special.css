@@ -1,0 +1,28 @@
+.special{
+  text-align: center;
+}
+.special table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.special table th {
+  font-size: 1.5rem;
+}
+
+/* メディアクエリ */
+/* スマートフォン向け */
+@media screen and (max-width: 959px) {
+  .workList{
+    text-align: center;
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .workList{
+    text-align: center;
+    overflow-x: auto;
+  }
+}

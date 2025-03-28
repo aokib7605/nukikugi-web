@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劇団抜きにくい釘</title>
+    <!-- Bootstrapの読み込み -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/welcom.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/group.css">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="headerLogo">
+        <img src="../image/Logo.png" alt="劇団抜きにくい釘">
+    </div>
+
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="header menu__box" id="menuList">
+            <th:block th:each="data : ${menuList}">
+                <li th:if="${data.value != null}">
+                    <a class="menu__item" th:href="${data.value}"><span th:text="${data.name}"></span></a>
+                </li>
+                <li th:if="${data.value == null}"><span class="menu__item" th:text="${data.name}"></span></li>
+            </th:block>
+        </ul>
+    </div>
+    <!-- Header End -->
+
+    <div class="groupArea">
+        <h1>内部演劇経歴</h1>
+        <h2><a href="/member">状況確認の際はここをクリック
+            </a></h2>
+
+        <p>経歴を編集するメンバーを選択してください</p>
+
+        <form action="/group/outSt" method="post">
+            <select name="memberId">
+                <th:block th:each="data: ${memberList}">
+                    <option th:value="${data.id}"><span th:text="${data.name}" /></option>
+                </th:block>
+            </select>
+            <input type="hidden" name="mode" value="info">
+            <input type="submit" value="決定">
+        </form>
+
+        <hr>
+
+        <div th:if="${outCareerSt != null}">
+            <h3>新規追加</h3>
+            <form action="/group/outSt" method="post">
+                <table>
+                    <tr>
+                        <th>作品名</th>
+                        <th>役割</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="title" id="careerName"></td>
+                        <td><input type="text" name="position"></td>
+                        <td>
+                            <input type="hidden" name="mode" value="insert">
+                            <input type="hidden" name="memberId" th:value="${memberId}">
+                            <input type="hidden" name="type1" value="out">
+                            <input type="hidden" name="type2" value="St">
+                            <input type="submit" value="新規追加">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <hr>
+
+            <h3>更新・削除</h3>
+            <div class="list">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>作品名</th>
+                        <th>役割</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <th:block th:each="data : ${outCareerSt}">
+                        <tr>
+                            <form action="/group/outSt" method="post">
+                                <input type="hidden" name="id" th:value="${data.id}">
+                                <input type="hidden" name="memberId" th:value="${memberId}">
+                                <input type="hidden" name="type1" value="out">
+                                <input type="hidden" name="type2" value="St">
+                                <td th:text="${data.id}"></td>
+                                <td><input type="text" name="title" id="careerName" th:value="${data.title}"></td>
+                                <td><input type="text" name="position" th:value="${data.position}"></td>
+                                <td><button type="submit" name="mode" value="update">更新</button></td>
+                                <td><button type="submit" name="mode" value="delete">削除</button></td>
+                            </form>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p th:text="${copyright}"></p>
+    </div>
+
+    <!-- Bootstrapの読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

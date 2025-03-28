@@ -1,0 +1,121 @@
+/* 汎用 */
+/* 
+header, mainArea, footerArea, 
+*/
+a {
+  text-decoration: none;
+}
+a:link {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+a:hover {
+  color: aquamarine;
+}
+a:active {
+  color: #ff0000;
+}
+.mainArea h1 {
+  text-align: center;
+  border-bottom: 1px white solid;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+}
+.mainArea h2 {
+  text-align: center;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: medium;
+  padding-bottom: 50px;
+}
+.mainArea h4 {
+  padding-top: 1rem;
+}
+
+/* メディアクエリ */
+/* スマートフォン向け */
+@media screen and (max-width: 959px) {
+  body {
+    margin: 0px;
+    background-color: black;
+    font-size: 10px;
+    min-height: 100vh;
+  }
+  p {
+    margin: 0px;
+  }
+  .mainArea {
+    color: white;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+    min-height: 100vh;
+  }
+  .mainArea p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 0.8rem;
+  }
+  .mainArea h3 {
+    padding: 0.6em;
+    background: white;
+    width: fit-content;
+    color: black;
+  }
+  .mainArea h3:after {
+    top: 100%;
+    left: 30px;
+    border: 15px solid transparent;
+    border-top: 15px solid white;
+    width: 0;
+    height: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  body {
+    margin: 0px;
+    background-color: black;
+    font-size: 10px;
+    min-height: 100vh;
+  }
+  p {
+    margin: 0px;
+  }
+  .mainArea {
+    color: white;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+    min-height: 100vh;
+  }
+  .mainArea p {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1rem;
+  }
+  .mainArea h3 {
+    position: relative;
+    padding: 0.6em;
+    background: white;
+    width: fit-content;
+    color: black;
+  }
+  .mainArea h3:after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 30px;
+    border: 15px solid transparent;
+    border-top: 15px solid white;
+    width: 0;
+    height: 0;
+  }
+}

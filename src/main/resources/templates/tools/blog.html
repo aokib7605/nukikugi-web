@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劇団抜きにくい釘</title>
+    <!-- Bootstrapの読み込み -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/welcom.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/group.css">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="headerLogo">
+        <img src="../image/Logo.png" alt="劇団抜きにくい釘">
+    </div>
+
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="header menu__box" id="menuList">
+            <th:block th:each="data : ${menuList}">
+                <li th:if="${data.value != null}">
+                    <a class="menu__item" th:href="${data.value}"><span th:text="${data.name}"></span></a>
+                </li>
+                <li th:if="${data.value == null}"><span class="menu__item" th:text="${data.name}"></span></li>
+            </th:block>
+        </ul>
+    </div>
+    <!-- Header End -->
+
+    <div class="groupArea">
+        <h1>Blog</h1>
+        <h2><a href="/blog">状況確認の際はここをクリック
+            </a></h2>
+
+        <p>※サムネイル画像は「/image/blog」に配置し、ファイル名は「画像」の値と一致させること<br>
+            ※過去にブログを投稿したメンバーは下記の通りです</p>
+        <ul>
+            <th:block th:each="data: ${authorList}">
+                <li th:text="${data}"></li>
+            </th:block>
+        </ul>
+
+        <hr>
+
+        <h3>新規追加</h3>
+        <form action="/group/blog" method="post">
+            <input type="hidden" name="mode" value="insert">
+            日付：<input type="date" name="date" required><br>
+            件名：<input type="text" name="title" required><br>
+            要約：<textarea name="content" id="content2"></textarea><br>
+            リンク：<input type="text" name="link" required><br>
+            画像：<input type="text" name="thumbnail"><br>
+            著者：<input type="text" name="author" required>
+            <p><input type="submit" value="新規追加"></p>
+        </form>
+
+        <hr>
+
+        <h3>編集・削除</h3>
+        <div class="list">
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>日付</th>
+                    <th>件名</th>
+                    <th>リンク</th>
+                    <th>画像</th>
+                    <th>著者</th>
+                </tr>
+                <th:block th:each="data: ${blogList}" id="column">
+                    <form action="/group/blog" method="post">
+                        <tr>
+                            <input type="hidden" name="id" th:value="${data.id}">
+                            <td th:text="${data.id}" rowspan="2"></td>
+                            <td><input type="date" name="date" th:value="${data.date}" required></td>
+                            <td><input type="text" name="title" id="title" th:value="${data.title}" required></td>
+                            <td><input type="text" name="link" id="title" th:value="${data.link}" required></td>
+                            <td><input type="text" name="thumbnail" id="value" th:value="${data.thumbnail}"></td>
+                            <td><input type="text" name="author" id="value" th:value="${data.author}" required></td>
+                        </tr>
+                        <tr>
+                            <th id="content">要約⇒</th>
+                            <td colspan="2"><textarea name="content" id="content2" th:text="${data.content}"
+                                    required></textarea></td>
+                            <td><button type="submit" name="mode" value="update">更新</button></td>
+                            <td><button type="submit" name="mode" value="delete">削除</button></td>
+                        </tr>
+                    </form>
+                </th:block>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p th:text="${copyright}"></p>
+    </div>
+
+    <!-- Bootstrapの読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

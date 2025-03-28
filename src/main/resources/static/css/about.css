@@ -1,0 +1,94 @@
+.memberInfo {
+  text-align: center;
+  font-size: 1rem;
+}
+.memberInfo ul {
+  text-align: left;
+  padding-left: 0;
+}
+.memberInfo ul li {
+  list-style: none;
+}
+.memberInfo img {
+  width: 30%;
+}
+.memberInfo p {
+  text-align: left;
+}
+.careerPosition {
+  font-size: 0.8rem;
+}
+
+/* メディアクエリ */
+/* スマートフォン向け */
+@media screen and (max-width: 959px) {
+  .memberArea {
+    text-align: center;
+    margin-bottom: 30px;
+    overflow-x: scroll;
+  }
+  .memberArea table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .memberArea img {
+    width: 50%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .memberArea table p {
+    margin: 0px;
+    padding: 10px;
+    bottom: 0px;
+    right: 0px;
+    background-color: black;
+    width: 100%;
+    height: 25%;
+    text-align: center;
+  }
+  .overView {
+    margin-bottom: 30px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .memberArea {
+    text-align: center;
+    margin-bottom: 30px;
+    overflow-x: auto;
+  }
+  .memberArea table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .memberArea table td {
+    position: relative;
+  }
+  .memberArea img {
+    width: 200px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .memberArea table p {
+    margin: 0px;
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: black;
+    width: 100%;
+    height: 25%;
+    text-align: center;
+  }
+  .overView {
+    margin-bottom: 30px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+  }
+}

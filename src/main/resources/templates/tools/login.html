@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劇団抜きにくい釘</title>
+    <!-- Bootstrapの読み込み -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/welcom.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+
+<body>
+    <div class="headerLogo">
+        <img src="../image/Logo.png" alt="劇団抜きにくい釘">
+    </div>
+
+    <div class="mainArea">
+        <h1>団員ログイン</h1>
+        <form action="/group/setInformations" method="post">
+            <input type="text" name="id"><br>
+            <input type="password" name="password"><br>
+            <input type="submit" value="ログイン">
+        </form>
+        <p th:text="${message}" style="color: red;" />
+    </div>
+
+    <div class="footer">
+        <p th:text="${copyright}"></p>
+    </div>
+
+    <!-- Bootstrapの読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

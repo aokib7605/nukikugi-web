@@ -1,0 +1,156 @@
+/* スマートフォン向け */
+@media screen and (max-width: 959px) {
+    .list{
+        overflow-x: scroll;
+    }
+    .groupArea{
+        color: white;
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 0.8rem;
+        margin-bottom: 50px;
+        min-height: 100vh;
+    }
+    .groupArea p{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 1rem;
+    }
+    .groupArea h1{
+        text-align: center;
+        border-bottom: 1px white solid;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 50px;
+    }
+    .groupArea h2{
+        text-align: center;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: medium;
+        padding-bottom: 50px;
+    }
+    .groupArea h3{
+        padding: 0.6em;
+        background: white;
+        width: fit-content;
+        color: black;
+        margin-bottom: 1rem;
+    }
+    .groupArea h3:after{
+        top: 100%;
+        left: 30px;
+        border: 15px solid transparent;
+        border-top: 15px solid white;
+        width: 0;
+        height: 0;
+    } 
+    .groupArea h4{
+        padding-top: 1rem;
+    }
+    .groupArea table tr{
+        border-bottom: 1px solid rgb(112, 112, 112);
+    }
+    .groupArea table th{
+        text-align: center;
+    }
+    .groupArea table td{
+        width: fit-content;
+    }
+    #title{
+        width: 20rem;
+    }
+    #value{
+        width: 5rem;
+    }
+    #content{
+        text-align: right;
+    }
+    #content2{
+        width: 100%;
+    }
+    #careerName{
+        width: 35rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .groupArea{
+        color: white;
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 1rem;
+        margin-bottom: 50px;
+        min-height: 100vh;
+    }
+    .groupArea p{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 1rem;
+    }
+    .groupArea h1{
+        text-align: center;
+        border-bottom: 1px white solid;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 50px;
+    }
+    .groupArea h2{
+        text-align: center;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: medium;
+        padding-bottom: 50px;
+    }
+    .groupArea h3{
+        position: relative;
+        padding: 0.6em;
+        background: white;
+        width: fit-content;
+        color: black;
+        margin-bottom: 1rem;
+    }
+    .groupArea h3:after{
+        position: absolute;
+        content: '';
+        top: 100%;
+        left: 30px;
+        border: 15px solid transparent;
+        border-top: 15px solid white;
+        width: 0;
+        height: 0;
+    } 
+    .groupArea h4{
+        padding-top: 1rem;
+    }
+    .groupArea table tr{
+        border-bottom: 1px solid rgb(112, 112, 112);
+    }
+    .groupArea table th{
+        text-align: center;
+    }
+    .groupArea table td{
+        width: fit-content;
+    }
+    #title{
+        width: 20rem;
+    }
+    #value{
+        width: 5rem;
+    }
+    #content{
+        text-align: right;
+    }
+    #content2{
+        width: 35rem;
+    }
+    #careerName{
+        width: 35rem;
+    }
+}
