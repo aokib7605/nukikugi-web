@@ -1,0 +1,48 @@
+.news {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 959px) {
+  .news table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .news table tr {
+    border-bottom: 1px white dashed;
+  }
+  .news table th,
+  td {
+    color: white;
+    text-align: left;
+  }
+  .news table td {
+    font-size: 0.8rem;
+  }
+  .news table th {
+    width: 30%;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .news table {
+    width: 100%;
+  }
+  .news table tr {
+    border-bottom: 1px white dashed;
+  }
+  .news table th,
+  td {
+    color: white;
+    text-align: left;
+  }
+  .news table td {
+    font-size: 1rem;
+  }
+  .news table th {
+    width: 30%;
+    font-size: 1rem;
+  }
+}

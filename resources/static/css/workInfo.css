@@ -1,0 +1,74 @@
+/* スマートフォン向け */
+@media screen and (max-width: 959px) {
+  .stageInfo_pc {
+    display: none;
+  }
+  .stageInfo_mobile {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .stageInfo_mobile p {
+    padding-top: 0px;
+    padding-bottom: 1rem;
+    border-bottom: 1px rgb(109, 109, 109) solid;
+  }
+  .stageInfo_mobile img {
+    width: 60%;
+    padding-bottom: 1rem;
+  }
+  #mainStaff {
+    font-size: 0.8rem;
+  }
+  #date {
+    font-size: 0.8rem;
+  }
+  #place {
+    font-size: 0.8rem;
+  }
+  #cast {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .stageInfo_mobile {
+    display: none;
+  }
+  .stageInfo_pc {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .stageInfo_pc table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .stageInfo_pc table th {
+    width: 40%;
+  }
+  .stageInfo_pc table td {
+    vertical-align: top;
+    text-align: left;
+    padding-left: 10rem;
+  }
+  .stageInfo_pc table td p {
+    padding-top: 0px;
+    padding-bottom: 1rem;
+    border-bottom: 1px rgb(109, 109, 109) solid;
+  }
+  .stageInfo_pc table th img {
+    width: 70%;
+    padding-bottom: 1rem;
+  }
+  #mainStaff {
+    font-size: 1.5rem;
+  }
+  #date {
+    font-size: 1.5rem;
+  }
+  #place {
+    font-size: 1.5rem;
+  }
+  #cast {
+    font-size: 1.5rem;
+  }
+}

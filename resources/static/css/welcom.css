@@ -1,0 +1,90 @@
+/* ウェルカムページ */
+/* 
+IndexBody, column, 
+column_Top, pickUp, 
+*/
+.column_Top {
+  font-size: x-large;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.pickUp {
+  width: 30%;
+}
+
+/* メディアクエリ */
+/* スマートフォン向け */
+@media screen and (max-width: 959px) {
+  .IndexBody {
+    width: 100%;
+    height: 100%;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+  .column {
+    text-align: center;
+    width: 90%;
+    padding-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .column table {
+    width: 100%;
+  }
+  .column td {
+    font-size: 0.7rem;
+  }
+  .column table tr {
+    border-bottom: 1px white dashed;
+  }
+  .column table th,
+  td {
+    color: white;
+    text-align: left;
+  }
+  .column table th {
+    width: 30%;
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .IndexBody {
+    width: 80%;
+    height: 100%;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+  .column {
+    text-align: center;
+    border-top: white 1px groove;
+    width: 90%;
+    padding-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .column td {
+    font-size: 1rem;
+  }
+  .column table {
+    width: 100%;
+  }
+  .column table tr {
+    border-bottom: 1px white dashed;
+  }
+  .column table th,
+  td {
+    color: white;
+    text-align: left;
+  }
+  .column table th {
+    width: 30%;
+    font-size: 0.8rem;
+  }
+}

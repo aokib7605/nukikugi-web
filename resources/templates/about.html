@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>劇団抜きにくい釘</title>
+	<!-- Bootstrapの読み込み -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/about.css">
+	<link rel="stylesheet" href="./css/header.css">
+</head>
+
+<body>
+	<!-- Header Start -->
+	<div class="headerLogo">
+		<img src="image/Logo.png" alt="劇団抜きにくい釘">
+	</div>
+
+	<div class="hamburger-menu">
+		<input id="menu__toggle" type="checkbox" />
+		<label class="menu__btn" for="menu__toggle">
+			<span></span>
+		</label>
+
+		<ul class="header menu__box" id="menuList">
+			<th:block th:each="data : ${menuList}">
+				<li th:if="${data.value != null}">
+					<a class="menu__item" th:href="${data.value}"><span th:text="${data.name}"></span></a>
+				</li>
+				<li th:if="${data.value == null}"><span class="menu__item" th:text="${data.name}"></span></li>
+			</th:block>
+		</ul>
+	</div>
+	<!-- Header End -->
+
+
+	<div class="mainArea">
+		<h1>About</h1>
+		<h2>劇団抜きにくい釘</h2>
+
+		<h3>劇団抜きにくい釘とは</h3>
+		<p>
+			2016年に結成された京都を拠点とする演劇＆創作集団。<br>
+			レクリエーション等にて演劇を行っており、小さなお子様やご年配にもお楽しみ頂ける作品をお届けします。
+		</p>
+		演劇のみならず、自由な形式で作品を公開しており、
+		「作品の面白さがいつまでも胸に残り続ける。」<br>
+		皆様にそう思っていただけるような作品創りを心掛けています。
+		</p>
+
+		<h3>つながり公演</h3>
+		<p>
+			福祉施設や学校等で人と芸術文化を繋げることを目的として、地域密着形態の演劇公演を行う「つながり公演」企画を実施しております。<br>
+			劇場よりももっとずっと気軽に、演劇文化をお楽しみ頂けます。<br>
+			人と芸術文化をつなげたい、芸術文化を通して人と人をつなげたい。<br>
+			ご用命の際は、お気軽にお声がけください。
+		</p>
+
+		<h3>単独公演</h3>
+		<p>
+			当団体の芸術表現力維持・向上の為、単独公演を行っております。<br>
+			「つながり公演」とはまた異なった視点で作品をご覧頂くことで、自団体の表現力向上に努めます。
+		</p>
+
+		<h1>団体概要</h1>
+		<h2>Over view</h2>
+		<div class="overView">
+			<p>
+				【団体名】<br>
+				劇団抜きにくい釘
+			</p>
+			<p>
+				【設立】<br>
+				2016年8月29日
+			</p>
+			<p>【活動内容】</p>
+			<ul>
+				<li>劇場での演劇上演</li>
+				<li>福祉施設や学校等での演劇上演</li>
+				<li>地域に密着した野外ライブ形式での演劇上演</li>
+				<li>演劇に限らず、個々人が得意とする技術を活かした創作表現</li>
+				<li>人と芸術文化をつなげ、芸術文化を通して人と人をつなげる</li>
+			</ul>
+			<p>
+				【主たる活動場所】<br>
+				京都、大阪
+			</p>
+			<p>
+				【メールアドレス】<br>
+				nukikugi@gmail.com
+			</p>
+		</div>
+	</div>
+
+	<!-- Footer Start -->
+	<div class="footer">
+		<p th:text="${copyright}"></p>
+	</div>
+	<!-- Footer End -->
+
+	<!-- Bootstrapの読み込み -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

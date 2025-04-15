@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劇団抜きにくい釘</title>
+    <!-- Bootstrapの読み込み -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/workInfo.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="headerLogo">
+        <img src="../image/Logo.png" alt="劇団抜きにくい釘">
+    </div>
+
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="header menu__box" id="menuList">
+            <th:block th:each="data : ${menuList}">
+                <li th:if="${data.value != null}">
+                    <a class="menu__item" th:href="${data.value}"><span th:text="${data.name}"></span></a>
+                </li>
+                <li th:if="${data.value == null}"><span class="menu__item" th:text="${data.name}"></span></li>
+            </th:block>
+        </ul>
+    </div>
+    <!-- Header End -->
+
+    <div class="mainArea">
+        <h1 th:if="${stage.title != null}" th:text="${stage.title}"></h1>
+        <h2 th:if="${stage.stage != null}" th:text="${stage.stage}"></h2>
+
+        <div class="stageInfo_pc">
+            <table>
+                <tr>
+                    <th><img th:src="'/images/flyer1/' + ${stage.value} + '.png'" alt="フライヤー表面">
+                    </th>
+                    <td rowspan="2">
+                        <p th:if="${stage.mainStaff != null}"><span id="story" th:text="${stage.mainStaff}" /></p>
+                        <p th:if="${stage.date != null}">
+                            【日時】<br>
+                            <span id="story">
+                                <th:block class="date" th:each="str, stat : ${stage.date.split('\r\n|\r|\n', -1)}">
+                                    <th:block th:text="${str}" />
+                                    <br th:if="${!stat.last}" />
+                            </span></th:block>
+                        </p>
+                        <p th:if="${stage.place != null}">
+                            【場所】<br>
+                            <span id="story">
+                                <th:block th:each="str, stat : ${stage.place.split('\r\n|\r|\n', -1)}">
+                                    <th:block th:text="${str}" />
+                                    <br th:if="${!stat.last}" />
+                            </span></th:block>
+                        </p>
+                        <p th:if="${stage.cast != null}">
+                            【キャスト】<br>
+                            <span id="story">
+                                <th:block th:each="str, stat : ${stage.cast.split('\r\n|\r|\n', -1)}">
+                                    <th:block th:text="${str}" />
+                                    <br th:if="${!stat.last}" />
+                            </span></th:block>
+                        </p>
+                        <p th:if="${stage.staff != null}">
+                            【スタッフ】<br>
+                            <span id="story">
+                                <th:block th:each="str, stat : ${stage.staff.split('\r\n|\r|\n', -1)}">
+                                    <th:block th:text="${str}" />
+                                    <br th:if="${!stat.last}" />
+                            </span></th:block>
+                        </p>
+                        <p th:if="${stage.story != null}">
+                            【あらすじ】<br>
+                            <span id="story">
+                                <th:block th:each="str, stat : ${stage.story.split('\r\n|\r|\n', -1)}">
+                                    <th:block th:text="${str}" />
+                                    <br th:if="${!stat.last}" />
+                            </span></th:block>
+                        </p>
+                        <p th:if="${stage.ticket != null}">
+                            【チケット】<br>
+                            <span id="ticket">
+                                <th:block th:each="str, stat : ${stage.ticket.split('\r\n|\r|\n', -1)}">
+                                    <th:block th:text="${str}" />
+                                    <br th:if="${!stat.last}" />
+                            </span></th:block>
+                        </p>
+                        <p th:if="${stage.reservation != null}">
+                            【ご予約】<br>
+                            <span id="reservation">
+                                <th:block th:each="str, stat : ${stage.reservation.split('\r\n|\r|\n', -1)}">
+                                    <th:block th:text="${str}" />
+                                    <br th:if="${!stat.last}" />
+                            </span></th:block>
+                        </p>
+                        <p>
+                            【スペシャルサンクス】<br>
+                            <span id="support">
+                                作品をお楽しみ頂く全ての方々<br>
+                                <th:block th:if="${stage.support != null}">
+                                    <th:block th:each="str, stat : ${stage.support.split('\r\n|\r|\n', -1)}">
+                                        <th:block th:text="${str}" />
+                                        <br th:if="${!stat.last}" />
+                            </span></th:block>
+                            </th:block>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img th:src="'/images/flyer2/' + ${stage.value} + '.png'" alt="フライヤー裏面">
+                    </th>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="stageInfo_mobile">
+            <p><img th:src="'/images/flyer1/' + ${stage.value} + '.png'" alt="フライヤー表面"></p>
+            <p><img th:src="'/images/flyer2/' + ${stage.value} + '.png'" alt="フライヤー裏面"></p>
+            <p th:if="${stage.date != null}">
+                【日時】<br>
+                <span id="story">
+                    <th:block class="date" th:each="str, stat : ${stage.date.split('\r\n|\r|\n', -1)}">
+                        <th:block th:text="${str}" />
+                        <br th:if="${!stat.last}" />
+                </span></th:block>
+            </p>
+            <p th:if="${stage.place != null}">
+                【場所】<br>
+                <span id="story">
+                    <th:block th:each="str, stat : ${stage.place.split('\r\n|\r|\n', -1)}">
+                        <th:block th:text="${str}" />
+                        <br th:if="${!stat.last}" />
+                </span></th:block>
+            </p>
+            <p th:if="${stage.cast != null}">
+                【キャスト】<br>
+                <span id="story">
+                    <th:block th:each="str, stat : ${stage.cast.split('\r\n|\r|\n', -1)}">
+                        <th:block th:text="${str}" />
+                        <br th:if="${!stat.last}" />
+                </span></th:block>
+            </p>
+            <p th:if="${stage.staff != null}">
+                【スタッフ】<br>
+                <span id="story">
+                    <th:block th:each="str, stat : ${stage.staff.split('\r\n|\r|\n', -1)}">
+                        <th:block th:text="${str}" />
+                        <br th:if="${!stat.last}" />
+                </span></th:block>
+            </p>
+            <p th:if="${stage.story != null}">
+                【あらすじ】<br>
+                <span id="story">
+                    <th:block th:each="str, stat : ${stage.story.split('\r\n|\r|\n', -1)}">
+                        <th:block th:text="${str}" />
+                        <br th:if="${!stat.last}" />
+                </span></th:block>
+            </p>
+            <p th:if="${stage.ticket != null}">
+                【チケット】<br>
+                <span id="ticket">
+                    <th:block th:each="str, stat : ${stage.ticket.split('\r\n|\r|\n', -1)}">
+                        <th:block th:text="${str}" />
+                        <br th:if="${!stat.last}" />
+                </span></th:block>
+            </p>
+            <p th:if="${stage.reservation != null}">
+                【ご予約】<br>
+                <span id="reservation">
+                    <th:block th:each="str, stat : ${stage.reservation.split('\r\n|\r|\n', -1)}">
+                        <th:block th:text="${str}" />
+                        <br th:if="${!stat.last}" />
+                </span></th:block>
+            </p>
+            <p>
+                【スペシャルサンクス】<br>
+                <span id="support">
+                    作品をお楽しみ頂く全ての方々<br>
+                    <th:block th:if="${stage.support != null}">
+                        <th:block th:each="str, stat : ${stage.support.split('\r\n|\r|\n', -1)}">
+                            <th:block th:text="${str}" />
+                            <br th:if="${!stat.last}" />
+                </span></th:block>
+                </th:block>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="footer">
+        <p th:text="${copyright}"></p>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Bootstrapの読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
