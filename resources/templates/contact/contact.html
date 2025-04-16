@@ -41,17 +41,22 @@
         <h2>Contact</h2>
 
         <div class="contact">
-            <p>出演依頼・上演依頼・質問・メンバー加入など<br>
-                なんでもお気軽にお問い合わせください。</p>
-            <p style="color: red;">
-                送信エラーが発生する場合は、<br>
-                お手数をお掛けしますが下記メールアドレスまでご連絡をお願いいたします。<br>
-                nukikugi@gmail.com
-            </p>
+			<div th:if="${message != null}">
+				<p th:utext="${message}"></p>
+			</div>
+			<div th:if="${message == null}">
+				<p>出演依頼・上演依頼・質問・メンバー加入など<br>
+	                なんでもお気軽にお問い合わせください。</p>
+	            <p style="color: red;">
+	                送信エラーが発生する場合は、<br>
+	                お手数をお掛けしますが下記メールアドレスまでご連絡をお願いいたします。<br>
+	                nukikugi@gmail.com
+	            </p>
+			</div>
 
                 <hr>
 
-            <form action="./confirmation.php" method="post" id="formArea">
+            <form action="sendMail" method="post" id="formArea">
                 <p>お名前<br>
                     <input type="text" name="name" size="30">
                 </p>
